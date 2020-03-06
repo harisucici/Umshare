@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.harisucici'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        useLibrary 'org.apache.http.legacy'
+    }
+
+    buildTypes {
+        /*debug {
+            buildConfigField "String",  "HOST_URL", "" + rootProject.ext.buildTypes.HOST_URL
+            buildConfigField "String",  "URL_MODULE", rootProject.ext.buildTypes.URL_MODULE
+        }*/
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            /*buildConfigField "String",  "HOST_URL", rootProject.ext.buildTypes.HOST_URL
+            buildConfigField "String",  "URL_MODULE", rootProject.ext.buildTypes.URL_MODULE*/
+        }
+    }
+
+}
+
+dependencies {
+    api files('libs/umeng-share-core-6.9.3.jar')
+    api files('libs/umeng-share-QQ-simplify-6.9.3.jar')
+    api files('libs/umeng-share-wechat-simplify-6.9.3.jar')
+    api files('libs/umeng-shareboard-widget-6.9.3.jar')
+    api files('libs/umeng-sharetool-6.9.3.jar')
+}
